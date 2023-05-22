@@ -1,6 +1,6 @@
 import requests
 
-TOKEN = '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'
+TOKEN = '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'
 USERNAME = 'BabarBaig'
 
 def github_repo_delete_bulk():
@@ -26,7 +26,7 @@ def github_repo_delete_bulk():
     for repo in repositories_to_delete:
         repo_name = repo['name']
         delete_url = f'https://api.github.com/repos/{USERNAME}/{repo_name}'
-        question = f"Delete [{delete_url}] ? \t"
+        question = f"Delete [{delete_url}]? \t"
         resp = input(question)
         if resp == 'q':
             print('Goodbye!')
