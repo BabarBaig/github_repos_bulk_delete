@@ -1,8 +1,6 @@
-""" Not sure what this does """
 import requests
 
-# Set your personal access token and username
-TOKEN = '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'
+TOKEN = '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'
 USERNAME = 'BabarBaig'
 
 def github_repo_delete_bulk():
@@ -21,15 +19,15 @@ def github_repo_delete_bulk():
     repositories = response.json()
 
     # Filter the list of repositories based on your criteria
-    repositories_to_delete = [repo for repo in repositories if 'aa' in repo['name']]
+    MATCH_STR = 'cada'
+    repositories_to_delete = [repo for repo in repositories if f'{MATCH_STR}' in repo['name']]
 
     # Delete the repositories
     for repo in repositories_to_delete:
         repo_name = repo['name']
         delete_url = f'https://api.github.com/repos/{USERNAME}/{repo_name}'
-        question = f"Delete [{delete_url} ?]"
+        question = f"Delete [{delete_url}] ? \t"
         resp = input(question)
-        print(f'resp: {resp}')
         if resp == 'q':
             print('Goodbye!')
             break
@@ -38,8 +36,8 @@ def github_repo_delete_bulk():
         delete_response = requests.delete(delete_url, headers=headers, timeout=10)
 
         if delete_response.status_code == 204:
-            print(f"Repository '{repo_name}' deleted successfully.")
+            print(f"Repository '{repo_name}' deleted successfully.\n")
         else:
-            print(f"Failed to delete repository '{repo_name}'. Error: {delete_response.text}")
+            print(f"Failed to delete repository '{repo_name}'. Error: {delete_response.text}\n")
 
 github_repo_delete_bulk()
