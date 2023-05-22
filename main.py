@@ -19,7 +19,7 @@ def github_repo_delete_bulk():
     repositories = response.json()
 
     # Filter the list of repositories based on your criteria
-    MATCH_STR = 'string_to_delete'
+    MATCH_STR = 'string_to_delete_next'
     repositories_to_delete = [repo for repo in repositories if f'{MATCH_STR}' in repo['name']]
 
     # Delete the repositories
