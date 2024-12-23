@@ -1,7 +1,7 @@
 import requests
 
-TOKEN = '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'
-USERNAME = 'BabarBaig'
+TOKEN = 'github_pat_your_unique_token'
+USERNAME = 'your_github_username'
 
 def github_repo_delete_bulk():
     """ bulk delete github repos.  Prompt before each delete """
